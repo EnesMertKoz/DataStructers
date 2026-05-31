@@ -1,22 +1,25 @@
-import queue.QueueLinkedList;
+import algorithms.BubbleSort;
 
 public class Main {
     public static void main(String[] args) {
-        QueueLinkedList kuyruk = new QueueLinkedList();
+        // Tamamen karışık ve düzensiz bir dizi oluşturuyoruz
+        int[] dizi = {64, 34, 25, 12, 22, 11, 90};
 
-        System.out.println("--- İnsanlar Kuyruğa Giriyor (Enqueue) ---");
-        kuyruk.enqueue(10); // İlk gelen (En önde)
-        kuyruk.enqueue(20);
-        kuyruk.enqueue(30); // Son gelen (En arkada)
+        System.out.println("--- Sıralamadan Önceki Dizi ---");
+        diziYazdir(dizi);
 
-        System.out.println("Şu an en öndeki eleman (Peek): " + kuyruk.peek());
-        // Çıktı: 10 bekliyoruz.
+        // Sihirli dokunuş: Yazdığın algoritmayı çağırıyoruz
+        BubbleSort.sort(dizi);
 
-        System.out.println("\n--- İşlemi Bitenler Kuyruktan Çıkıyor (Dequeue) ---");
-        System.out.println("Kuyruktan çıkan: " + kuyruk.dequeue()); // 10 çıkar
-        System.out.println("Kuyruktan çıkan: " + kuyruk.dequeue()); // 20 çıkar
+        System.out.println("\n--- Bubble Sort Sonrası Sıralanmış Dizi ---");
+        diziYazdir(dizi);
+    }
 
-        System.out.println("\nŞu an sıra kimde? (Peek): " + kuyruk.peek());
-        // Çıktı: 30 bekliyoruz.
+    // Diziyi ekrana şık bir şekilde basmak için yardımcı metot
+    public static void diziYazdir(int[] arr) {
+        for (int sayi : arr) {
+            System.out.print(sayi + " ");
+        }
+        System.out.println();
     }
 }
