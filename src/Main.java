@@ -1,21 +1,27 @@
 import algorithms.BubbleSort;
+import algorithms.SelectionSort;
+import algorithms.InsertionSort;
 
 public class Main {
     public static void main(String[] args) {
-        // Tamamen karışık ve düzensiz bir dizi oluşturuyoruz
-        int[] dizi = {64, 34, 25, 12, 22, 11, 90};
+        // Üç farklı algoritma için üç adet birbirinin aynısı karışık dizi oluşturuyoruz
+        int[] dizi1 = {45, 12, 85, 32, 4, 67, 23};
+        int[] dizi2 = {45, 12, 85, 32, 4, 67, 23};
+        int[] dizi3 = {45, 12, 85, 32, 4, 67, 23};
 
-        System.out.println("--- Sıralamadan Önceki Dizi ---");
-        diziYazdir(dizi);
+        System.out.println("=== 1. BUBBLE SORT TESTİ ===");
+        BubbleSort.sort(dizi1);
+        diziYazdir(dizi1);
 
-        // Sihirli dokunuş: Yazdığın algoritmayı çağırıyoruz
-        BubbleSort.sort(dizi);
+        System.out.println("\n=== 2. SELECTION SORT TESTİ ===");
+        SelectionSort.sort(dizi2);
+        diziYazdir(dizi2);
 
-        System.out.println("\n--- Bubble Sort Sonrası Sıralanmış Dizi ---");
-        diziYazdir(dizi);
+        System.out.println("\n=== 3. INSERTION SORT TESTİ ===");
+        InsertionSort.sort(dizi3);
+        diziYazdir(dizi3);
     }
 
-    // Diziyi ekrana şık bir şekilde basmak için yardımcı metot
     public static void diziYazdir(int[] arr) {
         for (int sayi : arr) {
             System.out.print(sayi + " ");
