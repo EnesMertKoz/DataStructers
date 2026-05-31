@@ -1,17 +1,23 @@
-public class Main{
-    public static void main(String[] args){
 
-        SingleLinkedList liste = new SingleLinkedList();
+import stack.StackLinkedList;
 
+public class Main {
+    public static void main(String[] args) {
+        StackLinkedList yigin = new StackLinkedList();
 
-        liste.addLast(20);
-        liste.addLast(30);
+        System.out.println("--- Elemanlar Yığılıyor (Push) ---");
+        yigin.push(10); // En altta
+        yigin.push(20);
+        yigin.push(30); // En üstte (Zirve)
 
-        liste.addFirst(10);
+        System.out.println("Şu an en üstteki eleman (Peek): " + yigin.peek());
+        // Çıktı: 30 bekliyoruz.
 
-        liste.printList();
+        System.out.println("\n--- Elemanlar Çıkarılıyor (Pop) ---");
+        System.out.println("Çıkarılan eleman: " + yigin.pop()); // 30 çıkar
+        System.out.println("Çıkarılan eleman: " + yigin.pop()); // 20 çıkar
 
-        liste.searchNode(20);
-        liste.searchNode(99);
+        System.out.println("\nŞu an en üstteki eleman (Peek): " + yigin.peek());
+        // Çıktı: 10 bekliyoruz.
     }
 }
