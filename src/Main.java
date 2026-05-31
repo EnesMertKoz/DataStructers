@@ -1,23 +1,22 @@
-
-import stack.StackLinkedList;
+import queue.QueueLinkedList;
 
 public class Main {
     public static void main(String[] args) {
-        StackLinkedList yigin = new StackLinkedList();
+        QueueLinkedList kuyruk = new QueueLinkedList();
 
-        System.out.println("--- Elemanlar Yığılıyor (Push) ---");
-        yigin.push(10); // En altta
-        yigin.push(20);
-        yigin.push(30); // En üstte (Zirve)
+        System.out.println("--- İnsanlar Kuyruğa Giriyor (Enqueue) ---");
+        kuyruk.enqueue(10); // İlk gelen (En önde)
+        kuyruk.enqueue(20);
+        kuyruk.enqueue(30); // Son gelen (En arkada)
 
-        System.out.println("Şu an en üstteki eleman (Peek): " + yigin.peek());
-        // Çıktı: 30 bekliyoruz.
-
-        System.out.println("\n--- Elemanlar Çıkarılıyor (Pop) ---");
-        System.out.println("Çıkarılan eleman: " + yigin.pop()); // 30 çıkar
-        System.out.println("Çıkarılan eleman: " + yigin.pop()); // 20 çıkar
-
-        System.out.println("\nŞu an en üstteki eleman (Peek): " + yigin.peek());
+        System.out.println("Şu an en öndeki eleman (Peek): " + kuyruk.peek());
         // Çıktı: 10 bekliyoruz.
+
+        System.out.println("\n--- İşlemi Bitenler Kuyruktan Çıkıyor (Dequeue) ---");
+        System.out.println("Kuyruktan çıkan: " + kuyruk.dequeue()); // 10 çıkar
+        System.out.println("Kuyruktan çıkan: " + kuyruk.dequeue()); // 20 çıkar
+
+        System.out.println("\nŞu an sıra kimde? (Peek): " + kuyruk.peek());
+        // Çıktı: 30 bekliyoruz.
     }
 }
