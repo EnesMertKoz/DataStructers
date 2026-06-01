@@ -1,31 +1,24 @@
-import algorithms.BubbleSort;
-import algorithms.SelectionSort;
-import algorithms.InsertionSort;
+import tree.BinaryTree;
 
 public class Main {
     public static void main(String[] args) {
-        // Üç farklı algoritma için üç adet birbirinin aynısı karışık dizi oluşturuyoruz
-        int[] dizi1 = {45, 12, 85, 32, 4, 67, 23};
-        int[] dizi2 = {45, 12, 85, 32, 4, 67, 23};
-        int[] dizi3 = {45, 12, 85, 32, 4, 67, 23};
+        BinaryTree agac = new BinaryTree();
 
-        System.out.println("=== 1. BUBBLE SORT TESTİ ===");
-        BubbleSort.sort(dizi1);
-        diziYazdir(dizi1);
+        System.out.println("--- Ağaca Elemanlar Ekleniyor ---");
+        // Rastgele sayılar ekliyoruz
+        agac.insert(50); // İlk eklenen kök (Root) olur
+        agac.insert(30); // 50'den küçük, sola gider
+        agac.insert(70); // 50'den büyük, sağa gider
+        agac.insert(20); // 50'den küçük sola, 30'dan küçük tekrar sola...
+        agac.insert(40);
+        agac.insert(60);
+        agac.insert(80);
 
-        System.out.println("\n=== 2. SELECTION SORT TESTİ ===");
-        SelectionSort.sort(dizi2);
-        diziYazdir(dizi2);
-
-        System.out.println("\n=== 3. INSERTION SORT TESTİ ===");
-        InsertionSort.sort(dizi3);
-        diziYazdir(dizi3);
-    }
-
-    public static void diziYazdir(int[] arr) {
-        for (int sayi : arr) {
-            System.out.print(sayi + " ");
-        }
-        System.out.println();
+        System.out.println("Ağacın Küçükten Büyüğe Sıralı Hali (In-Order):");
+        // Sihirli çıktı: Sayılar tamamen sıralı çıkmalı!
+        agac.inOrder();
+        System.out.println("\n--- Ağaçta Arama Testleri ---");
+        System.out.println("40 sayısı ağaçta var mı? " + agac.search(40)); // true bekliyoruz
+        System.out.println("95 sayısı ağaçta var mı? " + agac.search(95)); // false bekliyoruz
     }
 }
